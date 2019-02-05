@@ -1,0 +1,26 @@
+.acccontent{
+    background-image: url("../Images/accountant3.jpeg");
+    
+    background-size: cover;
+    height: 100%;
+    margin: 0px 120px;
+    padding: 1px;
+}
+.acchomeheading{
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 34px;
+    margin: 25px;
+    color: black;
+}
+.acchomelist{
+    width: 50%;
+    text-align: center;
+}
+.acchomelistitems{
+    color: black;
+}
+.acchomelistitems:hover{
+    background-color: none;
+    cursor: pointer;
+}

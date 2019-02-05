@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Edit Accountant</title>
+    <link href="../CSS/ResetStyle.css" rel="stylesheet">
+    <link href="../CSS/Home.css" rel="stylesheet">
+    <link href="../CSS/AdminCSS/AddAccForm.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="/adminhome" class="MainHeading">FeeReport</a>
+        <a href="/adminhome" class="Home">Home</a>
+        <a href="/addaccountantform" class="Home">Add Accountant</a>
+        <a href="/viewacc" class="Home">View Accountant</a>
+        <a href="/logout" class="Home">LogOut</a>
+    </nav>
+    <main class="mainContent">
+        <div class="subContent">
+            <div class="form">
+                <h1 class="formheading">Edit Accountant Form</h1>
+                <form autocomplete="on" method="POST" onsubmit="return false">
+                    <span class="inputHeading">Name:</span><input type="text" placeholder="Name" id="name" name="name"
+                        value="<%=result[0].name%>" required><br><br>
+                    <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="password"
+                        name="Password" value="<%=result[0].password%>" required><br><br>
+                    <span class="inputHeading">Email:</span><input type="text" placeholder="Email" id="email" name="email"
+                        required value="<%=result[0].email%>" pattern="[A-Z,a-z]+[0-9]*@[A-Z,a-z]+.com"><br><br>
+                    <span class="inputHeading">Address:</span><textarea rows="5" cols="35" placeholder="Address" id="address"
+                        name="address" required><%=result[0].address%></textarea><br><br>
+                    <span class="inputHeading">Contact:</span><input type="text" placeholder="Contact" id="contact"
+                        name="contact" value="<%=result[0].contact%>" required pattern="[0-9]{10}" maxlength="10"><br><br>
+                    <button type="submit" id="submit" class="loginButton" onclick="fooo();">Update Accountant</button><br><br>
+                    <p id="id" style="display:none;"><%=result[0]._id%></p>
+                    <div id="submitsuccess"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="../JS/UpdateAccountant.js"></script>
+    <footer class="footer">
+        <p class="footertext">All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

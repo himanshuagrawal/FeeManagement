@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="../CSS/ResetStyle.css" rel="stylesheet">
+    <link href="../CSS/Home.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="home" class="MainHeading">FeeReport</a>
+        <a href="home" class="Home">Home</a>
+    </nav>
+    <main class="mainContent">
+        <div class="subContent">
+            <div class="form">
+                <h1 class="formheading">Admin Login Form</h1>
+                <form onsubmit="return false">
+                <span class="inputHeading">Email:</span><input type="text" placeholder="Username" id="adminusername" name="Username"
+                    required><br><br>
+                <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="adminpassword"
+                    name="Password" required><br><br>
+                <button type="submit" class="loginButton" onclick="checkAdmin();">Login</button><br><br>
+                <div id="error1"></div>
+            </form>
+            </div>
+        </div>
+        <div class="subContent">
+            <div class="form">
+                <h1 class="formheading">Accountant Login Form</h1>
+                <form onsubmit="return false">
+                    <span class="inputHeading">Email:</span><input type="text" placeholder="Username" id="accusername" name="Username"
+                        required><br><br>
+                    <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="accpassword" name="Password"
+                        required><br><br>
+                    <button type="submit" class="loginButton" onclick="checkAcc();">Login</button><br><br>
+                    <div id="error2"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footertext">All Rights Reserved</p>
+    </footer>
+    <script src="./JS/CheckAdmin.js"></script>
+    <script src="./JS/CheckAcc.js"></script>
+</body>
+
+</html>

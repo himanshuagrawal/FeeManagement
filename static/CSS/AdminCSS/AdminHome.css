@@ -1,0 +1,22 @@
+.admincontent{
+    background-image: url("../Images/admin1.jpg");
+    width: 100%;
+    background-size: contain;
+    height: 100%;
+    padding: 1px;
+}
+.adminhomeheading{
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 34px;
+    margin: 25px;
+    color: white;
+}
+.adminhomelist{
+    width: 50%;
+    text-align: center;
+}
+.adminhomelistitems:hover{
+    background-color: none;
+    cursor: pointer;
+}

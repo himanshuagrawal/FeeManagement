@@ -1,0 +1,42 @@
+.inputHeading{
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    width: 100px;
+}
+
+input{
+    border: 1px solid #FA8072;
+    padding: 8px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+
+input:focus{
+    border-radius:0px; 
+}
+
+textarea{
+    border: 1px solid #FA8072;
+    padding: 8px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+
+textarea:focus{
+    border-radius:0px; 
+}
+
+select{
+    padding: 8px 20px;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #FA8072;
+    border-radius: 5px;
+}
+
+select:focus{
+    border-radius:0px; 
+}

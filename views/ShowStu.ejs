@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>Students</title>
+    <link href="../CSS/ResetStyle.css" rel="stylesheet">
+    <link href="../CSS/Home.css" rel="stylesheet">
+    <link href="../CSS/AccCSS/ViewStudent.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="/acchome" class="MainHeading">FeeReport</a>
+        <a href="/acchome" class="Home">Home</a>
+        <a href="/addstudentform" class="Home">Add Student</a>
+        <a href="/viewstu" class="Home">View Student</a>
+        <a href="/viewstudue" class="Home">Due Fee</a>
+        <a href="/searchstuform" class="Home">Search Student</a>
+        <a href="/logout" class="Home">LogOut</a>
+    </nav>
+    <div class="table">
+        <% var i=1;%>
+        <h1 class="Accountantheading">View Students</h1>
+        <table>
+            <tr>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Sex</th>
+                <th>Course</th>
+                <th>FEE</th>
+                <th>Paid</th>
+                <th>Due</th>
+                <th>Adress</th>
+                <th>Contact</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% result.forEach(function(value){%>
+            <tr>
+                <td>
+                    <%=value.rollno%>
+                </td>
+                <td>
+                    <%=value.name%>
+                </td>
+                <td>
+                    <%=value.email%>
+                </td>
+                <td>
+                    <%=value.sex%>
+                </td>
+                <td>
+                    <%=value.course%>
+                </td>
+                <td>
+                    <%=value.fee%>
+                </td>
+                <td>
+                    <%=value.paid%>
+                </td>
+                <td>
+                    <%=value.due%>
+                </td>
+                <td>
+                    <%=value.address%>
+                </td>
+                <td>
+                    <%=value.contact%>
+                </td>
+                <td><a id="<%= value._id%>" href="/editstu/<%= value._id%>" class="editordelete">Edit</a></td>
+                <td><a id="<%= value._id%>" href="" onclick="del(this.id);" class="editordelete">Delete</a></td>
+            </tr>
+            <% i++;});%>
+        </table>
+    </div>
+    <div id="error"></div>
+    <script src="./JS/DelStu.js"></script>
+    <footer class="footer">
+        <p class="footertext">All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

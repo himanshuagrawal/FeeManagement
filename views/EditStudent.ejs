@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>EditStudent</title>
+    <link href="../CSS/ResetStyle.css" rel="stylesheet">
+    <link href="../CSS/Home.css" rel="stylesheet">
+    <link href="../CSS/AccCSS/AddStuForm.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="/acchome" class="MainHeading">FeeReport</a>
+        <a href="/acchome" class="Home">Home</a>
+        <a href="/addstudentform" class="Home">Add Student</a>
+        <a href="/viewstu" class="Home">View Student</a>
+        <a href="/viewstudue" class="Home">Due Fee</a>
+        <a href="/searchstuform" class="Home">Search Student</a>
+        <a href="/logout" class="Home">LogOut</a>
+    </nav>
+    <main class="mainContent">
+        <div class="subContent">
+            <div class="form">
+                <h1 class="formheading">Edit Student Form</h1>
+                <form autocomplete="on" method="POST" onsubmit="return false">
+                    <span class="inputHeading">Name:</span><input type="text" placeholder="Name" id="name" name="name"
+                        required value='<%=result[0].name%>'><br><br>
+                    <span class="inputHeading">Email:</span><input type="text" placeholder="Email" id="email" name="email"
+                        required pattern="[A-Z,a-z]+[0-9]*@[A-Z,a-z]+.com" value='<%=result[0].email%>'><br><br>
+                    <span class="inputHeading">Sex:</span><input type="radio" id="radio" name="gender" value="male"
+                        checked>MALE
+                    <input type="radio" id="radio" name="gender" value="female">FEMALE <br><br>
+                    <span class="inputHeading">Course:</span><select id="course">
+                        <option value="java" selected>JAVA</option>
+                        <option value=".net">.NET</option>
+                        <option value="php">PHP</option>
+                    </select><br><br>
+                    <span class="inputHeading">Fee:</span><input type="text" placeholder="Fee" id="fee" name="fee"
+                        required pattern="[0-9]*" value='<%=result[0].fee%>' maxlength="10"><br><br>
+                    <span class="inputHeading">Paid:</span><input type="text" placeholder="Paid" id="paid" name="paid"
+                        required pattern="[0-9]*" value='<%=result[0].paid%>' maxlength="10"><br><br>
+                    <span class="inputHeading">Due:</span><input type="text" placeholder="Due" id="due" name="due"
+                        required pattern="[0-9]*" value='<%=result[0].due%>' maxlength="10"><br><br>
+                    <span class="inputHeading">Address:</span><textarea rows="5" cols="35" placeholder="Address" id="address"
+                        name="address" required><%=result[0].address%></textarea><br><br>
+                    <span class="inputHeading">Contact:</span><input type="text" placeholder="Contact" id="contact"
+                        name="contact" required value='<%=result[0].contact%>' pattern="[0-9]{10}" maxlength="10"><br><br>
+                    <button type="submit" id="submit" class="loginButton" onclick="fooo();">Update Student</button><br><br>
+                    <p id="id" style="display:none;"><%=result[0]._id%></p>
+                    <div id="submitsuccess"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="../JS/UpdateStudent.js"></script>
+    <footer class="footer">
+        <p class="footertext">All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

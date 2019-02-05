@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>Students</title>
+    <link href="../CSS/ResetStyle.css" rel="stylesheet">
+    <link href="../CSS/Home.css" rel="stylesheet">
+    <link href="../CSS/AccCSS/SearchStudentResult.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <a href="/acchome" class="MainHeading">FeeReport</a>
+        <a href="/acchome" class="Home">Home</a>
+        <a href="/addstudentform" class="Home">Add Student</a>
+        <a href="/viewstu" class="Home">View Student</a>
+        <a href="/viewstudue" class="Home">Due Fee</a>
+        <a href="/searchstuform" class="Home">Search Student</a>
+        <a href="/logout" class="Home">LogOut</a>
+    </nav>
+    <div class="table">
+        <h1 class="Accountantheading">View Student</h1>
+        <table>
+            <tr>
+                <td>
+                    RollNo:
+                </td>
+                <td>
+                    <%=result.rollno%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    <%=result.name%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    <%=result.email%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sex:
+                </td>
+                <td>
+                    <%=result.sex%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Course:
+                </td>
+                <td>
+                    <%=result.course%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fee:
+                </td>
+                <td>
+                    <%=result.fee%>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <footer class="footer">
+        <p class="footertext">All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
