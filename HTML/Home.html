@@ -12,26 +12,26 @@
     </nav>
     <main class="mainContent">
         <div class="subContent">
-            <div class="form">
+            <div class="form" >
                 <h1 class="formheading">Admin Login Form</h1>
                 <form onsubmit="return false">
-                <span class="inputHeading">Email:</span><input type="text" placeholder="Username" id="adminusername" name="Username"
-                    required><br><br>
-                <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="adminpassword"
-                    name="Password" required><br><br>
-                <button type="submit" class="loginButton" onclick="checkAdmin();">Login</button><br><br>
-                <div id="error1"></div>
-            </form>
+                    <span class="inputHeading">Email:</span><input type="text" placeholder="Username" id="adminusername"
+                        name="Username" required onclick="hideWarningAdmin()"><br><br>
+                    <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="adminpassword"
+                        name="Password" required onclick="hideWarningAdmin()"><br><br>
+                    <button type="submit" class="loginButton" onclick="checkAdmin();">Login</button><br><br>
+                    <div id="error1"></div>
+                </form>
             </div>
         </div>
         <div class="subContent">
             <div class="form">
                 <h1 class="formheading">Accountant Login Form</h1>
                 <form onsubmit="return false">
-                    <span class="inputHeading">Email:</span><input type="text" placeholder="Username" id="accusername" name="Username"
-                        required><br><br>
-                    <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="accpassword" name="Password"
-                        required><br><br>
+                    <span class="inputHeading">Email:</span><input type="text" placeholder="Username" id="accusername"
+                        name="Username" required onclick="hideWarningAccountant()"><br><br>
+                    <span class="inputHeading">Password:</span><input type="password" placeholder="Password" id="accpassword"
+                        name="Password" required onclick="hideWarningAccountant()"><br><br>
                     <button type="submit" class="loginButton" onclick="checkAcc();">Login</button><br><br>
                     <div id="error2"></div>
                 </form>

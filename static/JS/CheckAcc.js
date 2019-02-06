@@ -2,7 +2,7 @@ function checkAcc() {
     var username = document.getElementById('accusername').value;
     var password = document.getElementById('accpassword').value;
     var error = document.getElementById('error2');
-    if(username!=""&&password!=""){
+    if (username != "" && password != "") {
         var obj = {
             'username': username,
             'password': password
@@ -20,8 +20,13 @@ function checkAcc() {
                 location.href = "/acchome";
             }
             else {
+                error.style.display = 'block';
                 error.innerHTML = "Wrong Id or Password";
             }
         })
     }
-    }
+}
+
+function hideWarningAccountant(){
+    document.getElementById('error2').style.display='none';
+}

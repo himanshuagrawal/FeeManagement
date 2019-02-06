@@ -17,8 +17,13 @@ function checkAdmin() {
         }
         else {
             document.getElementById("error1").innerHTML = "Wrong id or password";  
+            document.getElementById("error1").style.display = 'block';
         }
     });    
 }
+}
+
+function hideWarningAdmin(){
+    document.getElementById('error1').style.display='none';
 }
 

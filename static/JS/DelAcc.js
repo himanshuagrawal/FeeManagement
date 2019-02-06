@@ -1,8 +1,5 @@
-
-
-
-
 function del(id){
+    console.log(id);
     fetch('/deleteacc',{
         headers:{
             'id':id,
