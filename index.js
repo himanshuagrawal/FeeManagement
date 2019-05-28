@@ -186,23 +186,23 @@ app.post('/checkAcclogin', function (req, res) {
 
 //api for adding the accountant to database
 app.post('/addaccdb', function (req, res) {
-    addAccountant.addAcc(obj, res);
+    addAccountant.addAcc(req.body, res);
 })
 
 //api for updating the new accountant info to database
 app.post('/updateaccdb', function (req, res) {
-    updateAccountant.updateAcc(obj, res);
+    updateAccountant.updateAcc(req.body, res);
 })
 
 
 //api for adding the student to database 
 app.post('/addstudb', function (req, res) {
-    addStudent.addStu(obj, res);
+    addStudent.addStu(req.body, res);
 })
 
 //api for updating the new student info to database
 app.post('/updatestudb', function (req, res) {
-    updateStudent.updateStu(obj, res);
+    updateStudent.updateStu(req.body, res);
 })
 
 //api for deleting the accountant
@@ -218,7 +218,7 @@ app.post('/deletestu', function (req, res) {
 
 //api for getting the student
 app.post('/getstudent', function (req, res) {
-    getStudent.getStu(obj, res);
+    getStudent.getStu(req.body, res);
 })
 
 
