@@ -3,6 +3,7 @@ var express = require('express');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
+const jsonwebtoken = require('jsonwebtoken');
 
 var verifyLoginAdmin = require('./JS/AdminModule/VerifyLoginAdmin');
 var verifyLoginAccountant = require('./JS/AccountantModule/VerifyLoginAccountant');
@@ -56,35 +57,66 @@ app.set('view engine', 'ejs');
 
 
 //defining the port
-app.listen(3000, function () {
+app.listen(3002, function () {
     console.log("The connection has been made successfully");
 });
 
 
 //middlewares defined for session control
 const redirectLoginPageAdmin = function (req, res, next) {
-    if (!req.session.adminuserid) {
-        res.redirect('/home');
-    } else {
-        next();
-    }
+    let token = req.headers.cookie.split('=')[2];
+    let tokenData = jsonwebtoken.decode(token);
+    jsonwebtoken.verify(token, 'This is the secret key', (err, obj) => {
+        if (err||tokenData.userType=="Acc") {
+            res.redirect('/home');
+        } else {
+            next();
+        }
+    })
+    // if (!req.session.adminuserid) {
+    //     res.redirect('/home');
+    // } else {
+    //     next();
+    // }
 }
 const redirectLoginPageAcc = function (req, res, next) {
-    if (!req.session.accuserid) {
-        res.redirect('/home');
-    } else {
-        next();
-    }
+    let token = req.headers.cookie.split('=')[2];
+    let tokenData = jsonwebtoken.decode(token);
+    jsonwebtoken.verify(token, 'This is the secret key', (err, obj) => {
+        if (err||tokenData.userType=="Admin") {
+            res.redirect('/home');
+        } else {
+            next();
+        }
+    })
+    // if (!req.session.accuserid) {
+    //     res.redirect('/home');
+    // } else {
+    //     next();
+    // }
 }
 const redirectHome = function (req, res, next) {
-    if (req.session.adminuserid) {
-        res.redirect('/adminhome');
-    } else if (req.session.accuserid) {
-        res.redirect('/acchome');
-    }
-    else {
+    let token = req.headers.cookie.split('=')[2];
+    let tokenData = jsonwebtoken.decode(token);
+    if (tokenData !== null) {
+        if (tokenData.userType === 'Admin') {
+            res.redirect('/adminhome');
+        } else if (tokenData.userType === 'Acc') {
+            res.redirect('/acchome');
+        } else {
+            next();
+        }
+    }else{
         next();
     }
+    // if (req.session.adminuserid) {
+    //     res.redirect('/adminhome');
+    // } else if (req.session.accuserid) {
+    //     res.redirect('/acchome');
+    // }
+    // else {
+    //     next();
+    // }
 }
 
 
@@ -165,7 +197,7 @@ app.get('/editstu/:id', redirectLoginPageAcc, function (req, res) {
 
 //route for logging out
 app.get('/logout', function (req, res) {
-    req.session.destroy();
+    res.clearCookie('token', { path: '/' });
     res.redirect('/home');
 })
 
@@ -174,13 +206,13 @@ app.get('/logout', function (req, res) {
 
 //api for checking admin login
 app.post('/checkadminlogin', function (req, res) {
-    verifyLoginAdmin.verifyadmin(req.body, req, res);
+    verifyLoginAdmin.verifyadmin(req.body, req, res, jsonwebtoken);
 });
 
 
 //api for checking accountant login
 app.post('/checkAcclogin', function (req, res) {
-    verifyLoginAccountant.verifyacc(req.body, req, res);
+    verifyLoginAccountant.verifyacc(req.body, req, res,jsonwebtoken);
 });
 
 

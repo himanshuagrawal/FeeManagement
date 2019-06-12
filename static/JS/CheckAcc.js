@@ -16,7 +16,8 @@ function checkAcc() {
         }).then(function (result) {
             return result.text();
         }).then(function (data) {
-            if (data == "true") {
+            if (data !== "false") {
+                document.cookie=`token=${data}; path=/;`;
                 location.href = "/acchome";
             }
             else {

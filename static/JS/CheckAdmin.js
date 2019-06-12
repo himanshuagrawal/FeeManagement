@@ -12,7 +12,8 @@ function checkAdmin() {
     }).then(function (res) {
         return res.text();
     }).then(function (data) {
-        if (data == "true") {
+        if (data !== "false") {
+            document.cookie=`token=${data}; path=/;`;
             location.href="/adminhome";
         }
         else {
